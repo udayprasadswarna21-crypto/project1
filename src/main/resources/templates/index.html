@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jamix-style Landing</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-row">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-text">Jamix</div>
+      </div>
+
+      <nav class="nav">
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Our Customers</a>
+        <a href="#">Company</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <a class="login" href="#">Login Info</a>
+      </nav>
+
+      <div class="lang">
+        <a class="active" href="#">EN</a>
+        <span>|</span>
+        <a href="#">FI</a>
+        <span>|</span>
+        <a href="#">SV</a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <h1>
+          Cloud-Based Kitchen<br/>
+          Management Software For<br/>
+          Sustainable Food Service<br/>
+          Management
+        </h1>
+
+        <p class="kicker">
+          MANAGE YOUR FOOD SERVICE OPERATION IN ONE COMPLETE SOFTWARE SYSTEM
+        </p>
+
+        <p class="desc">
+          Recipe Management. Menu Planning. Restaurant Inventory Management. Food Production And Requisitions.
+          Multi-Unit Restaurant Management. Sustainability.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#">BOOK A DEMO</a>
+          <a class="btn btn-outline" href="#">See how JAMIX makes your work in the kitchen easier</a>
+        </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-image">
+          <div class="badge-circle">SUSTAINABLE<br/>KITCHEN</div>
+          <div class="badge-rect">KI<br/><small>AWARD</small></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Curved bottom -->
+    <div class="hero-curve" aria-hidden="true"></div>
+  </section>
+
+  <!-- Logos -->
+  <section class="logos">
+    <div class="container">
+      <p class="logos-title">
+        Trusted by 2,500+ Kitchens Preparing 1,000,000+ Meals Daily with JAMIX Kitchen Intelligence System
+      </p>
+
+      <div class="logo-row">
+        <div class="logo-pill">Yale Hospitality</div>
+        <div class="logo-pill">AVI Foodsystems</div>
+        <div class="logo-pill">UC Davis</div>
+        <div class="logo-pill">Thomas Cuisine</div>
+        <div class="logo-pill">Kent State</div>
+        <div class="logo-pill">Oregon State</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple mobile nav toggle
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector(".nav");
+    toggle.addEventListener("click", () => nav.classList.toggle("open"));
+  </script>
+</body>
+</html>
