@@ -19,14 +19,33 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    goals: 'clean package'
+
+- script: |
+    echo "System.DefaultWorkingDirectory=$(System.DefaultWorkingDirectory)"
+    echo "Build.ArtifactStagingDirectory=$(Build.ArtifactStagingDirectory)"
+    echo "---- ls root ----"
+    ls -la
+    echo "---- ls target ----"
+    ls -la target || true
+    echo "---- find jar/war ----"
+    find . -type f \( -name "*.jar" -o -name "*.war" \) -print
+  displayName: "Debug: show build outputs"
+
 - task: CopyFiles@2
   inputs:
-    Contents: '**/.war'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: |
+      **/target/*.jar
+      **/target/*.war
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- script: |
+    echo "---- ls artifact staging ----"
+    ls -la $(Build.ArtifactStagingDirectory) || true
+  displayName: "Debug: staging contents"
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
-    publishLocation: 'Container'
-    MaxArtifactSize: 
